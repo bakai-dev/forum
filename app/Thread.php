@@ -29,8 +29,13 @@ use Illuminate\Support\Carbon;
  */
 class Thread extends Model
 {
-    public function path()
+    public function patch()
     {
         return '/threads/' . $this->id;
+    }
+
+    public function replies()
+    {
+        return $this->hasMany(Reply::class);
     }
 }
