@@ -25,3 +25,25 @@ $factory->define(User::class, function (Faker $faker) {
         'remember_token' => Str::random(10),
     ];
 });
+
+$factory->define(App\Thread::class, function (Faker $fake) {
+    return [
+        'user_id' => function () {
+            return factory(App\User::class)->create()->id;
+        },
+        'title' => $fake->sentence,
+        'body' => $fake->paragraph,
+    ];
+});
+
+$factory->define(App\Reply::class, function (Faker $fake) {
+    return [
+        'thread_id' => function () {
+            return factory(App\Thread::class)->create()->id;
+        },
+        'user_id' => function () {
+            return factory(App\User::class)->create()->id;
+        },
+        'body' => $fake->paragraph,
+    ];
+});
