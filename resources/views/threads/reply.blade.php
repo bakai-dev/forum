@@ -1,3 +1,4 @@
+<div class="pt-lg-4">
 <div class="card">
     <div class="card-header">
         <a href="">
@@ -7,4 +8,5 @@
     <div class="card-body">
         {{ $reply->body }}
     </div>
+</div>
 </div>
